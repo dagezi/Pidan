@@ -10,7 +10,7 @@ import InputMethodKit
 
 @objc(IMKitSampleInputController)
 class IMKitSampleInputController: IMKInputController {
-    let romanConverter = RomanConverter()
+    let romanConverter = RomanConverter(defaultRomanTable)
     var markedText = "";
     
     override func updateComposition() {
