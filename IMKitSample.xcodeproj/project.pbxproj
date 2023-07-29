@@ -50,6 +50,7 @@
 		1A41E64526E7470D009B65D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1A41E64626E74937009B65D7 /* main.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = main.tiff; path = IMKitSample/main.tiff; sourceTree = SOURCE_ROOT; };
 		1A41E64826E7495A009B65D7 /* IMKitSample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IMKitSample.entitlements; sourceTree = "<group>"; };
+		9876792729CCBE83005689E1 /* IMKitSample.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = IMKitSample.xctestplan; path = IMKitSample.xcodeproj/IMKitSample.xctestplan; sourceTree = "<group>"; };
 		9899C2AF29CC1C7B00B7EA46 /* RomanConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanConverter.swift; sourceTree = "<group>"; };
 		9899C2B129CC71B000B7EA46 /* DefaultRomanTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultRomanTable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,6 +83,7 @@
 		1A41E60B26E745D9009B65D7 = {
 			isa = PBXGroup;
 			children = (
+				9876792729CCBE83005689E1 /* IMKitSample.xctestplan */,
 				1A41E61626E745D9009B65D7 /* IMKitSample */,
 				1A41E62726E745DD009B65D7 /* IMKitSampleTests */,
 				1A41E63126E745DD009B65D7 /* IMKitSampleUITests */,
@@ -344,7 +346,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CONFIGURATION_BUILD_DIR = "/Library/Input Methods";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -371,7 +372,7 @@
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SYMROOT = "/Library/Input Methods";
+				SYMROOT = build;
 			};
 			name = Debug;
 		};
@@ -408,7 +409,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CONFIGURATION_BUILD_DIR = "/Library/Input Methods";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;

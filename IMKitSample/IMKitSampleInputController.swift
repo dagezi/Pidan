@@ -34,7 +34,7 @@ class IMKitSampleInputController: IMKInputController {
     }
     
     override func inputText(_ string: String!, key keyCode: Int, modifiers flags: Int, client sender: Any!) -> Bool {
-        NSLog("\(string ?? "-")/\(keyCode)/\(flags)")
+        NSLog("\(string.first?.asciiValue ?? 0)/\(keyCode)/\(flags)")
         // get client to insert
         guard let client = sender as? IMKTextInput else {
             return false
