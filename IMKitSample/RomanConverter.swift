@@ -21,9 +21,8 @@ class RomanConverter {
                 // Suppose most specified candidate comes first
                 if (source[i...].starts(with: tuple.from)) {
                     result.append(tuple.to)
-                    // TODO: Support rest
                     processed = true
-                    i = source.index(i, offsetBy: tuple.from.count)
+                    i = source.index(i, offsetBy: tuple.from.count - tuple.rest.count)
                 }
             }
             if (!processed) {
