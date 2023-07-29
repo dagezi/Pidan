@@ -23,6 +23,7 @@ class RomanConverter {
                     result.append(tuple.to)
                     processed = true
                     i = source.index(i, offsetBy: tuple.from.count - tuple.rest.count)
+                    break
                 }
             }
             if (!processed) {
