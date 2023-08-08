@@ -4,7 +4,7 @@ import Foundation
 
 class RomanConverter {
     var romanTable: [RomanTuple]
-    
+
     init(_ romanTable: [RomanTuple]) {
         self.romanTable = romanTable.sorted {
             $0.from.count > $1.from.count
@@ -39,7 +39,7 @@ class RomanTuple {
     let from: String
     let to: String
     let rest: String
-    
+
     init(_ from: String, _ to: String, _ rest: String) {
         self.from = from
         self.to = to

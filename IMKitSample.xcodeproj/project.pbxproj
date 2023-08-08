@@ -15,6 +15,10 @@
 		1A41E64226E74627009B65D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A41E64126E74627009B65D7 /* AppDelegate.swift */; };
 		1A41E64426E74669009B65D7 /* IMKitSampleInputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A41E64326E74669009B65D7 /* IMKitSampleInputController.swift */; };
 		1A41E64726E74937009B65D7 /* main.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 1A41E64626E74937009B65D7 /* main.tiff */; };
+		983B42C42A8812960008C14C /* CommandMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983B42C32A8812960008C14C /* CommandMap.swift */; };
+		988717702A77809C006325B1 /* PidanCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9887176F2A77809C006325B1 /* PidanCommand.swift */; };
+		988717722A7BE80F006325B1 /* BasicCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988717712A7BE80F006325B1 /* BasicCommands.swift */; };
+		988717742A8137B6006325B1 /* ConvModeCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988717732A8137B6006325B1 /* ConvModeCommands.swift */; };
 		9899C2B029CC1C7B00B7EA46 /* RomanConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9899C2AF29CC1C7B00B7EA46 /* RomanConverter.swift */; };
 		9899C2B229CC71B000B7EA46 /* DefaultRomanTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9899C2B129CC71B000B7EA46 /* DefaultRomanTable.swift */; };
 /* End PBXBuildFile section */
@@ -50,7 +54,11 @@
 		1A41E64526E7470D009B65D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		1A41E64626E74937009B65D7 /* main.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = main.tiff; path = IMKitSample/main.tiff; sourceTree = SOURCE_ROOT; };
 		1A41E64826E7495A009B65D7 /* IMKitSample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IMKitSample.entitlements; sourceTree = "<group>"; };
+		983B42C32A8812960008C14C /* CommandMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandMap.swift; sourceTree = "<group>"; };
 		9876792729CCBE83005689E1 /* IMKitSample.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = IMKitSample.xctestplan; path = IMKitSample.xcodeproj/IMKitSample.xctestplan; sourceTree = "<group>"; };
+		9887176F2A77809C006325B1 /* PidanCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PidanCommand.swift; sourceTree = "<group>"; };
+		988717712A7BE80F006325B1 /* BasicCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicCommands.swift; sourceTree = "<group>"; };
+		988717732A8137B6006325B1 /* ConvModeCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvModeCommands.swift; sourceTree = "<group>"; };
 		9899C2AF29CC1C7B00B7EA46 /* RomanConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RomanConverter.swift; sourceTree = "<group>"; };
 		9899C2B129CC71B000B7EA46 /* DefaultRomanTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultRomanTable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,6 +112,8 @@
 		1A41E61626E745D9009B65D7 /* IMKitSample */ = {
 			isa = PBXGroup;
 			children = (
+				9887176F2A77809C006325B1 /* PidanCommand.swift */,
+				9887176E2A778040006325B1 /* Commands */,
 				1A41E64526E7470D009B65D7 /* Info.plist */,
 				1A41E64826E7495A009B65D7 /* IMKitSample.entitlements */,
 				1A41E64326E74669009B65D7 /* IMKitSampleInputController.swift */,
@@ -113,6 +123,7 @@
 				1A41E61D26E745DD009B65D7 /* Preview Content */,
 				9899C2AF29CC1C7B00B7EA46 /* RomanConverter.swift */,
 				9899C2B129CC71B000B7EA46 /* DefaultRomanTable.swift */,
+				983B42C32A8812960008C14C /* CommandMap.swift */,
 			);
 			path = IMKitSample;
 			sourceTree = "<group>";
@@ -140,6 +151,15 @@
 				1A41E63426E745DD009B65D7 /* IMKitSampleUITestsLaunchTests.swift */,
 			);
 			path = IMKitSampleUITests;
+			sourceTree = "<group>";
+		};
+		9887176E2A778040006325B1 /* Commands */ = {
+			isa = PBXGroup;
+			children = (
+				988717712A7BE80F006325B1 /* BasicCommands.swift */,
+				988717732A8137B6006325B1 /* ConvModeCommands.swift */,
+			);
+			path = Commands;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,6 +296,10 @@
 				9899C2B229CC71B000B7EA46 /* DefaultRomanTable.swift in Sources */,
 				9899C2B029CC1C7B00B7EA46 /* RomanConverter.swift in Sources */,
 				1A41E64226E74627009B65D7 /* AppDelegate.swift in Sources */,
+				988717702A77809C006325B1 /* PidanCommand.swift in Sources */,
+				983B42C42A8812960008C14C /* CommandMap.swift in Sources */,
+				988717742A8137B6006325B1 /* ConvModeCommands.swift in Sources */,
+				988717722A7BE80F006325B1 /* BasicCommands.swift in Sources */,
 				1A41E64426E74669009B65D7 /* IMKitSampleInputController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
