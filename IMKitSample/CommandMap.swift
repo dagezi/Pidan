@@ -56,6 +56,12 @@ struct CommandMap {
         ]
     ]
 
+    var fallbackCommands: [PidanInputMode : PidanCommand?] = [
+        .none : nil,
+        .raw : NopCommand.inst,
+        .conv : NopCommand.inst,
+    ]
+
     init() {
         for keyCode in selfInsertKeys {
             map[.none]?.append(

@@ -55,6 +55,11 @@ class IMKitSampleInputController: IMKInputController {
                 break
             }
         }
+        if !handled {
+            let fallback: PidanCommand?? = commandMap.fallbackCommands[context.mode]
+            fallback??.execute(context)
+            handled = (fallback != nil)
+        }
         context.inputClient = nil
 
         if (context.mode == .raw) {
