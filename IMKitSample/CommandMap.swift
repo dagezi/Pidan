@@ -50,6 +50,7 @@ struct CommandMap {
         ],
         .raw: [
             CommandEntry(kVK_ANSI_J, controlBit, RawToHiraCommand.inst),
+            CommandEntry(kVK_ANSI_L, controlBit, FixCommand.inst),
         ],
         .conv: [
             CommandEntry(kVK_ANSI_L, controlBit, FixCommand.inst),
@@ -68,6 +69,8 @@ struct CommandMap {
                 CommandEntry(keyCode, 0, RawInsertSelfCommand.inst))
             map[.raw]?.append(
                 CommandEntry(keyCode, 0, RawInsertSelfCommand.inst))
+            map[.conv]?.append(
+                CommandEntry(keyCode, 0, FixAndExecuteCommand.inst))
         }
     }
 }

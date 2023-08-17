@@ -27,9 +27,16 @@ class PidanContext {
     }
 }
 
+
+enum PidanCommandResult {
+    case handled      // Handled
+    case notHandled   // Not handled
+    case reexecute    // Handled, but re execute with new state
+}
+
 protocol PidanCommand {
     static var inst: PidanCommand { get }
     var name: String { get }
-    func execute(_ : PidanContext)
+    func execute(_ : PidanContext) -> PidanCommandResult
 }
 

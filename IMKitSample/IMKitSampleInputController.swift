@@ -46,19 +46,20 @@ class IMKitSampleInputController: IMKInputController {
         context.inputKeyCode = keyCode
         context.inputModifier = modifiers
 
-        var handled = false
-        for entry in commandMap.map[context.mode]! {
-            if keyCode == entry.keyCode, (modifiers & entry.mask) == entry.modifier {
-                NSLog("\(modifiers) \(entry.mask) \(entry.modifier) command: \(entry.command.name)")
-                entry.command.execute(context)
-                handled = true
-                break
+        var result: PidanCommandResult = .reexecute
+        while (result == .reexecute) {
+            result = .notHandled
+            for entry in commandMap.map[context.mode]! {
+                if keyCode == entry.keyCode, (modifiers & entry.mask) == entry.modifier {
+                    NSLog("\(modifiers) \(entry.mask) \(entry.modifier) command: \(entry.command.name)")
+                    result = entry.command.execute(context)
+                    break
+                }
             }
         }
-        if !handled {
+        if result == .notHandled {
             let fallback: PidanCommand?? = commandMap.fallbackCommands[context.mode]
-            fallback??.execute(context)
-            handled = (fallback != nil)
+            result = fallback??.execute(context) ?? .notHandled
         }
         context.inputClient = nil
 
@@ -77,6 +78,6 @@ class IMKitSampleInputController: IMKInputController {
                 selectionRange: NSRange(location: attr.length, length: 0),
                 replacementRange: NSRange(location: NSNotFound, length: NSNotFound))
         }
-        return handled
+        return result == .handled
     }
 }
