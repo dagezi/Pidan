@@ -25,6 +25,22 @@ class RawToHiraCommand : PidanCommand {
     }
 }
 
+class RawBackSpaceCommand : PidanCommand {
+    static var inst: PidanCommand = RawBackSpaceCommand()
+
+    var name: String = "RawBackSpaceCommand"
+
+    func execute(_ context: PidanContext) -> PidanCommandResult {
+        if !context.rawString.isEmpty {
+            context.rawString.removeLast()
+        }
+        if (context.rawString.isEmpty) {
+            context.mode = .none
+        }
+        return .handled
+    }
+}
+
 class NopCommand : PidanCommand {
     static var inst: PidanCommand = NopCommand()
     var name = "NopCommand"

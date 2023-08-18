@@ -63,12 +63,20 @@ class IMKitSampleInputController: IMKInputController {
         }
         context.inputClient = nil
 
-        if (context.mode == .raw) {
+        switch (context.mode) {
+        case .none:
+            client.setMarkedText(
+                "",
+                selectionRange: NSRange(location: 0, length: 0),
+                replacementRange: NSRange(location: NSNotFound, length: NSNotFound))
+
+        case .raw:
             client.setMarkedText(
                 context.rawString,
                 selectionRange: NSRange(location: context.rawString.count, length: 0),
                 replacementRange: NSRange(location: NSNotFound, length: NSNotFound))
-        } else if (context.mode == .conv) {
+
+        case .conv:
             let attr = NSMutableAttributedString(string: context.convedString)
             attr.addAttribute(NSAttributedString.Key.underlineStyle,
                               value: NSUnderlineStyle.thick.rawValue,

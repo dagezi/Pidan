@@ -51,6 +51,7 @@ struct CommandMap {
         .raw: [
             CommandEntry(kVK_ANSI_J, controlBit, RawToHiraCommand.inst),
             CommandEntry(kVK_ANSI_L, controlBit, FixCommand.inst),
+            CommandEntry(kVK_ANSI_H, controlBit, RawBackSpaceCommand.inst),
         ],
         .conv: [
             CommandEntry(kVK_ANSI_L, controlBit, FixCommand.inst),
