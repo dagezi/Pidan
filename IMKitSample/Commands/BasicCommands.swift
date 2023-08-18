@@ -73,7 +73,7 @@ class FixAndExecuteCommand : PidanCommand {
     var name: String = "FixAndExecuteCommand"
 
     func execute(_ context: PidanContext) -> PidanCommandResult {
-        FixCommand.inst.execute(context)
+        _ = FixCommand.inst.execute(context)
         return .reexecute
     }
 }
