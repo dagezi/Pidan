@@ -89,11 +89,21 @@ class FixCommand : PidanCommand {
 // Works in .raw and .conv
 class FixAndExecuteCommand : PidanCommand {
     static var inst: PidanCommand = FixAndExecuteCommand()
-
     var name: String = "FixAndExecuteCommand"
 
     func execute(_ context: PidanContext) -> PidanCommandResult {
         _ = FixCommand.inst.execute(context)
         return .reexecute
+    }
+}
+
+// Note: It doesn't work for Ctrl+M. Why?
+class FixAndPassThruCommand : PidanCommand {
+    static var inst: PidanCommand = FixAndPassThruCommand()
+    var name: String = "FixAndPassThruCommand"
+
+    func execute(_ context: PidanContext) -> PidanCommandResult {
+        _ = FixCommand.inst.execute(context)
+        return .notHandled
     }
 }

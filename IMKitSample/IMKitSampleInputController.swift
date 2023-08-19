@@ -1,4 +1,3 @@
-import Cocoa
 import InputMethodKit
 
 @objc(IMKitSampleInputController)
@@ -44,7 +43,8 @@ class IMKitSampleInputController: IMKInputController {
             result = .notHandled
             for entry in commandMap.map[context.mode]! {
                 if keyCode == entry.keyCode, (modifiers & entry.mask) == entry.modifier {
-                    NSLog("\(modifiers) \(entry.mask) \(entry.modifier) command: \(entry.command.name)")
+                    NSLog("%x %x %x command: \(entry.command.name)",
+                        modifiers, entry.mask, entry.modifier)
                     result = entry.command.execute(context)
                     context.prevCommand = entry.command
                     break

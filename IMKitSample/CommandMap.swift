@@ -49,18 +49,22 @@ struct CommandMap {
         .none : [
         ],
         .raw: [
+            CommandEntry(kVK_ANSI_H, controlBit, RawBackSpaceCommand.inst),
             CommandEntry(kVK_ANSI_J, controlBit, RawToHiraCommand.inst),
             CommandEntry(kVK_ANSI_K, controlBit, RawToHiraCommand.inst),
             CommandEntry(kVK_ANSI_L, controlBit, FixCommand.inst),
-            CommandEntry(kVK_ANSI_H, controlBit, RawBackSpaceCommand.inst),
-            CommandEntry(kVK_Return, 0, FixCommand.inst),
-            CommandEntry(kVK_Space, 0, FixCommand.inst),
+            CommandEntry(kVK_ANSI_M, controlBit, FixAndPassThruCommand.inst),
+            CommandEntry(kVK_Tab, 0, FixAndPassThruCommand.inst),
+            CommandEntry(kVK_Return, 0, FixAndPassThruCommand.inst),
+            CommandEntry(kVK_Space, 0, FixAndPassThruCommand.inst),
         ],
         .conv: [
             CommandEntry(kVK_ANSI_K, controlBit, KataHiraCommand.inst),
             CommandEntry(kVK_ANSI_L, controlBit, FixCommand.inst),
-            CommandEntry(kVK_Return, 0, FixCommand.inst),
-            CommandEntry(kVK_Space, 0, FixCommand.inst),
+            CommandEntry(kVK_ANSI_M, controlBit, FixAndPassThruCommand.inst),
+            CommandEntry(kVK_Tab, 0, FixAndPassThruCommand.inst),
+            CommandEntry(kVK_Return, 0, FixAndPassThruCommand.inst),
+            CommandEntry(kVK_Space, 0, FixAndPassThruCommand.inst),
         ]
     ]
 
