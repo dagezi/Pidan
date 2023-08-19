@@ -1,11 +1,3 @@
-//
-//  IMKitSampleInputController.swift
-//  IMKitSampleInputController
-//
-//  Created by ensan on 2021/09/07.
-//
-
-import Cocoa
 import InputMethodKit
 
 @objc(IMKitSampleInputController)
