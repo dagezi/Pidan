@@ -42,7 +42,7 @@ struct CommandMap {
         kVK_ANSI_6, kVK_ANSI_7, kVK_ANSI_8, kVK_ANSI_9,
         kVK_ANSI_Minus, kVK_ANSI_Equal, kVK_ANSI_LeftBracket, kVK_ANSI_RightBracket,
         kVK_ANSI_Semicolon, kVK_ANSI_Quote, kVK_ANSI_Backslash, kVK_ANSI_Grave,
-        kVK_ANSI_Comma, kVK_ANSI_Period, kVK_ANSI_Slash, kVK_Space,
+        kVK_ANSI_Comma, kVK_ANSI_Period, kVK_ANSI_Slash,
     ]
 
     var map: [PidanInputMode : [CommandEntry]] = [
@@ -53,10 +53,14 @@ struct CommandMap {
             CommandEntry(kVK_ANSI_K, controlBit, RawToHiraCommand.inst),
             CommandEntry(kVK_ANSI_L, controlBit, FixCommand.inst),
             CommandEntry(kVK_ANSI_H, controlBit, RawBackSpaceCommand.inst),
+            CommandEntry(kVK_Return, 0, FixCommand.inst),
+            CommandEntry(kVK_Space, 0, FixCommand.inst),
         ],
         .conv: [
             CommandEntry(kVK_ANSI_K, controlBit, KataHiraCommand.inst),
             CommandEntry(kVK_ANSI_L, controlBit, FixCommand.inst),
+            CommandEntry(kVK_Return, 0, FixCommand.inst),
+            CommandEntry(kVK_Space, 0, FixCommand.inst),
         ]
     ]
 
