@@ -8,9 +8,13 @@ enum PidanInputMode: String {
 }
 
 class PidanContext {
+    let romanConverter = RomanConverter(defaultRomanTable)
+
     var mode: PidanInputMode = PidanInputMode.none
     var rawString: String = ""
     var convedString: String = "" // Temporary
+
+    var prevCommand: PidanCommand? = nil
 
     var inputString: String = ""
     var inputKeyCode: Int = -1
@@ -25,6 +29,9 @@ class PidanContext {
                 s, replacementRange: NSRange(location: NSNotFound, length: NSNotFound))
         }
     }
+
+    // HiraKata commands
+    var hiraKataChars: Int = 0
 }
 
 

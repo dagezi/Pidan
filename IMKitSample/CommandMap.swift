@@ -50,16 +50,17 @@ struct CommandMap {
         ],
         .raw: [
             CommandEntry(kVK_ANSI_J, controlBit, RawToHiraCommand.inst),
+            CommandEntry(kVK_ANSI_K, controlBit, RawToHiraCommand.inst),
             CommandEntry(kVK_ANSI_L, controlBit, FixCommand.inst),
             CommandEntry(kVK_ANSI_H, controlBit, RawBackSpaceCommand.inst),
         ],
         .conv: [
+            CommandEntry(kVK_ANSI_K, controlBit, KataHiraCommand.inst),
             CommandEntry(kVK_ANSI_L, controlBit, FixCommand.inst),
         ]
     ]
 
-    var fallbackCommands: [PidanInputMode : PidanCommand?] = [
-        .none : nil,
+    var fallbackCommands: [PidanInputMode : PidanCommand] = [
         .raw : NopCommand.inst,
         .conv : NopCommand.inst,
     ]

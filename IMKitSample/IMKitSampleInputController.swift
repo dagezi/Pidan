@@ -46,13 +46,17 @@ class IMKitSampleInputController: IMKInputController {
                 if keyCode == entry.keyCode, (modifiers & entry.mask) == entry.modifier {
                     NSLog("\(modifiers) \(entry.mask) \(entry.modifier) command: \(entry.command.name)")
                     result = entry.command.execute(context)
+                    context.prevCommand = entry.command
                     break
                 }
             }
         }
         if result == .notHandled {
-            let fallback: PidanCommand?? = commandMap.fallbackCommands[context.mode]
-            result = fallback??.execute(context) ?? .notHandled
+            let mayFallback: PidanCommand? = commandMap.fallbackCommands[context.mode]
+            if let fallback = mayFallback {
+                result = fallback.execute(context)
+                context.prevCommand = fallback
+            }
         }
         context.inputClient = nil
 
