@@ -50,12 +50,12 @@ class IMKitSampleInputController: IMKInputController {
                     break
                 }
             }
-        }
-        if result == .notHandled {
-            let mayFallback: PidanCommand? = commandMap.fallbackCommands[context.mode]
-            if let fallback = mayFallback {
-                result = fallback.execute(context)
-                context.prevCommand = fallback
+            if result == .notHandled {
+                let mayFallback: PidanCommand? = commandMap.fallbackCommands[context.mode]
+                if let fallback = mayFallback {
+                    result = fallback.execute(context)
+                    context.prevCommand = fallback
+                }
             }
         }
         context.inputClient = nil

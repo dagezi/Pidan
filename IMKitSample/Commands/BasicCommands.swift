@@ -104,6 +104,6 @@ class FixAndPassThruCommand : PidanCommand {
 
     func execute(_ context: PidanContext) -> PidanCommandResult {
         _ = FixCommand.inst.execute(context)
-        return .notHandled
+        return .through
     }
 }

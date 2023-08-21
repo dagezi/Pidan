@@ -39,6 +39,7 @@ enum PidanCommandResult {
     case handled      // Handled
     case notHandled   // Not handled
     case reexecute    // Handled, but re execute with new state
+    case through      // Handled, but through event to client
 }
 
 protocol PidanCommand {
