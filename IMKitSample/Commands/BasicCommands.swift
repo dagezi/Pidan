@@ -11,20 +11,8 @@ class RawInsertSelfCommand : PidanCommand {
     }
 }
 
-class RawToHiraCommand : PidanCommand {
-    static var inst: PidanCommand = RawToHiraCommand()
-    var name = "RawToHiraCommand"
-    let romanConverter = RomanConverter(defaultRomanTable)
-
-    func execute(_ context: PidanContext) -> PidanCommandResult {
-        context.convedString =
-            context.romanConverter.convert(source: context.rawString)
-        context.mode = .conv
-        return .handled
-    }
-}
-
 // for conv mode
+// TODO: migrate to converter
 class KataHiraCommand : PidanCommand {
     static var inst: PidanCommand = KataHiraCommand()
     var name = "KataHiraCommand"
@@ -77,8 +65,12 @@ class FixCommand : PidanCommand {
     var name: String = "FixCommand"
 
     func execute(_ context: PidanContext) -> PidanCommandResult {
-        context.insertToClient(
-            context.mode == .raw ? context.rawString :context.convedString)
+        var conved = context.rawString
+        if let converter = context.kanziConverter {
+            conved = converter.getConvedString()
+        }
+        context.insertToClient(conved)
+        context.kanziConverter = nil
         context.convedString = ""
         context.rawString = ""
         context.mode = .none

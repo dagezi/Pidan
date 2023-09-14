@@ -17,6 +17,10 @@
 		1A41E64726E74937009B65D7 /* main.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 1A41E64626E74937009B65D7 /* main.tiff */; };
 		983B42C42A8812960008C14C /* CommandMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983B42C32A8812960008C14C /* CommandMap.swift */; };
 		983B42C62A919AD20008C14C /* Hiraganas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983B42C52A919AD20008C14C /* Hiraganas.swift */; };
+		983B42C92AB255880008C14C /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983B42C82AB255880008C14C /* Dictionary.swift */; };
+		983B42CB2AB263360008C14C /* SampleDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983B42CA2AB263360008C14C /* SampleDictionary.swift */; };
+		983B42CD2AB263BD0008C14C /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983B42CC2AB263BD0008C14C /* Converter.swift */; };
+		983B42CF2AB27C170008C14C /* ConvertCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983B42CE2AB27C170008C14C /* ConvertCommands.swift */; };
 		988717702A77809C006325B1 /* PidanCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9887176F2A77809C006325B1 /* PidanCommand.swift */; };
 		988717722A7BE80F006325B1 /* BasicCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988717712A7BE80F006325B1 /* BasicCommands.swift */; };
 		9899C2B029CC1C7B00B7EA46 /* RomanConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9899C2AF29CC1C7B00B7EA46 /* RomanConverter.swift */; };
@@ -56,6 +60,10 @@
 		1A41E64826E7495A009B65D7 /* IMKitSample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IMKitSample.entitlements; sourceTree = "<group>"; };
 		983B42C32A8812960008C14C /* CommandMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandMap.swift; sourceTree = "<group>"; };
 		983B42C52A919AD20008C14C /* Hiraganas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hiraganas.swift; sourceTree = "<group>"; };
+		983B42C82AB255880008C14C /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
+		983B42CA2AB263360008C14C /* SampleDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDictionary.swift; sourceTree = "<group>"; };
+		983B42CC2AB263BD0008C14C /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
+		983B42CE2AB27C170008C14C /* ConvertCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertCommands.swift; sourceTree = "<group>"; };
 		9876792729CCBE83005689E1 /* IMKitSample.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = IMKitSample.xctestplan; path = IMKitSample.xcodeproj/IMKitSample.xctestplan; sourceTree = "<group>"; };
 		9887176F2A77809C006325B1 /* PidanCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PidanCommand.swift; sourceTree = "<group>"; };
 		988717712A7BE80F006325B1 /* BasicCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicCommands.swift; sourceTree = "<group>"; };
@@ -112,6 +120,7 @@
 		1A41E61626E745D9009B65D7 /* IMKitSample */ = {
 			isa = PBXGroup;
 			children = (
+				983B42C72AB255660008C14C /* Convert */,
 				9887176F2A77809C006325B1 /* PidanCommand.swift */,
 				9887176E2A778040006325B1 /* Commands */,
 				1A41E64526E7470D009B65D7 /* Info.plist */,
@@ -154,10 +163,21 @@
 			path = IMKitSampleUITests;
 			sourceTree = "<group>";
 		};
+		983B42C72AB255660008C14C /* Convert */ = {
+			isa = PBXGroup;
+			children = (
+				983B42C82AB255880008C14C /* Dictionary.swift */,
+				983B42CA2AB263360008C14C /* SampleDictionary.swift */,
+				983B42CC2AB263BD0008C14C /* Converter.swift */,
+			);
+			path = Convert;
+			sourceTree = "<group>";
+		};
 		9887176E2A778040006325B1 /* Commands */ = {
 			isa = PBXGroup;
 			children = (
 				988717712A7BE80F006325B1 /* BasicCommands.swift */,
+				983B42CE2AB27C170008C14C /* ConvertCommands.swift */,
 			);
 			path = Commands;
 			sourceTree = "<group>";
@@ -294,10 +314,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9899C2B229CC71B000B7EA46 /* DefaultRomanTable.swift in Sources */,
+				983B42CD2AB263BD0008C14C /* Converter.swift in Sources */,
 				9899C2B029CC1C7B00B7EA46 /* RomanConverter.swift in Sources */,
 				1A41E64226E74627009B65D7 /* AppDelegate.swift in Sources */,
+				983B42CB2AB263360008C14C /* SampleDictionary.swift in Sources */,
 				988717702A77809C006325B1 /* PidanCommand.swift in Sources */,
 				983B42C42A8812960008C14C /* CommandMap.swift in Sources */,
+				983B42CF2AB27C170008C14C /* ConvertCommands.swift in Sources */,
+				983B42C92AB255880008C14C /* Dictionary.swift in Sources */,
 				983B42C62A919AD20008C14C /* Hiraganas.swift in Sources */,
 				988717722A7BE80F006325B1 /* BasicCommands.swift in Sources */,
 				1A41E64426E74669009B65D7 /* IMKitSampleInputController.swift in Sources */,

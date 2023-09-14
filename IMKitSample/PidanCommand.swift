@@ -3,12 +3,14 @@ import InputMethodKit
 
 enum PidanInputMode: String {
     case none   // User never input anything
-    case raw    // User has input some characters, but not translateed
-    case conv   // User started translation, choosing cnaididate
+    case raw    // User has input some characters, but not converted
+    case conv   // User started conversion, choosing cnaididate
 }
 
 class PidanContext {
     let romanConverter = RomanConverter(defaultRomanTable)
+    let dictionary = defaultDictionary
+    var kanziConverter: Converter? = nil
 
     var mode: PidanInputMode = PidanInputMode.none
     var rawString: String = ""

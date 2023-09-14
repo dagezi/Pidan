@@ -74,10 +74,19 @@ class IMKitSampleInputController: IMKInputController {
                 replacementRange: NSRange(location: NSNotFound, length: NSNotFound))
 
         case .conv:
-            let attr = NSMutableAttributedString(string: context.convedString)
+            var convedString = context.rawString
+            var focusStart = 0
+            var focusEnd = convedString.count
+
+            if let converter = context.kanziConverter {
+                convedString = (converter.bunsetu?.getDest() ?? "") + (converter.rest ?? "")
+                focusEnd = converter.bunsetu?.getDest().count ?? 0
+            }
+
+            let attr = NSMutableAttributedString(string: convedString)
             attr.addAttribute(NSAttributedString.Key.underlineStyle,
                               value: NSUnderlineStyle.thick.rawValue,
-                              range: NSMakeRange(0, attr.length))
+                              range: NSMakeRange(focusStart, focusEnd))
             client.setMarkedText(
                 attr,
                 selectionRange: NSRange(location: attr.length, length: 0),
