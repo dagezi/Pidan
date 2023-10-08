@@ -29,7 +29,23 @@ class RawToHiraCommand : PidanCommand {
         converter.convertHira()
         context.mode = .conv
         context.kanziConverter = converter
-        
+
+        return .handled
+    }
+}
+
+class KataHiraCommand : PidanCommand {
+    static var inst: PidanCommand = KataHiraCommand()
+    var name = "KataHiraCommand"
+
+    func execute(_ context: PidanContext) -> PidanCommandResult {
+        guard context.mode == .conv else {
+            return .handled
+        }
+
+        if let converter = context.kanziConverter {
+            converter.modifyHiraKata()
+        }
         return .handled
     }
 }

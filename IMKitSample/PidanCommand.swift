@@ -31,9 +31,6 @@ class PidanContext {
                 s, replacementRange: NSRange(location: NSNotFound, length: NSNotFound))
         }
     }
-
-    // HiraKata commands
-    var hiraKataChars: Int = 0
 }
 
 

@@ -11,28 +11,6 @@ class RawInsertSelfCommand : PidanCommand {
     }
 }
 
-// for conv mode
-// TODO: migrate to converter
-class KataHiraCommand : PidanCommand {
-    static var inst: PidanCommand = KataHiraCommand()
-    var name = "KataHiraCommand"
-
-    func execute(_ context: PidanContext) -> PidanCommandResult {
-        let hira = context.romanConverter.convert(source: context.rawString)
-
-        if !(context.prevCommand is KataHiraCommand) || context.hiraKataChars == 0 {
-            context.hiraKataChars = hira.count
-        }
-        let kataStart = hira.startIndex
-        let kataEnd = hira.index(kataStart, offsetBy: context.hiraKataChars)
-
-        context.hiraKataChars -= 1
-        context.convedString = hiraToKata(hira, range: kataStart ..< kataEnd)
-        context.mode = .conv
-        return .handled
-    }
-}
-
 class RawBackSpaceCommand : PidanCommand {
     static var inst: PidanCommand = RawBackSpaceCommand()
 

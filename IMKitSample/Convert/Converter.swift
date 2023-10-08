@@ -2,21 +2,34 @@ import Foundation
 
 class Bunsetu {
     let src: Substring
-    // Should it have candidate?
     var candidates: [Candidate] = []
     var selected: Int = 0
+
+    // We have special Bunsetu for Kata-and-hira, which has one dynamic candidate.
+    var hiraKataChars: Int? = nil
 
     init(_ src: Substring, _ candidates: [Candidate]) {
         self.src = src
         self.candidates = candidates
     }
 
+    init(_ src: Substring, kataChars: Int) {
+        self.src = src
+        setKataChars(kataChars)
+    }
+
+    func setKataChars(_ chars: Int) {
+        let hiraSrc = String(src)
+        let conved = hiraToKata(hiraSrc, range: hiraSrc.startIndex ..< hiraSrc.index(hiraSrc.startIndex, offsetBy: chars))
+        let dynamicEntry = DictionaryEntry(hiraSrc, conved)
+        hiraKataChars = chars
+        candidates = [Candidate(dynamicEntry, "")]
+        selected = 0
+    }
+
     func getDest() -> String {
         return candidates[selected].getDest()
     }
-
-    // Can we modify src of bunsetu?
-    // Do we have special Kata-suffixed-Hira Bunsetu?
 }
 
 class Candidate {
@@ -52,13 +65,14 @@ class Converter {
         return (bunsetu?.getDest() ?? "") + (rest ?? "")
     }
 
-    // Convert into one Hiragana (or raw) bunsetu
-    func convertHira(_ start: String.Index? = nil) {
-        let i = start ?? source.startIndex
+    // Convert whole into one Hiragana (or raw) bunsetu
+    func convertHira() {
+        bunsetu = Bunsetu(source.dropFirst(0), kataChars: 0)
+        rest = ""
+    }
 
-        let dynamicEntry = DictionaryEntry("", "")
-        let candidates = [Candidate(dynamicEntry, source)]
-        bunsetu = Bunsetu(source[i...], candidates)
+    func convertToKana() {
+        bunsetu = Bunsetu(source.dropFirst(0), kataChars: source.count)
         rest = ""
     }
 
@@ -88,6 +102,23 @@ class Converter {
         }
         bunsetu = Bunsetu(source[i..<consumedIndex], candidates)
         rest = source[consumedIndex...]
+    }
+
+    // Current bunsetu into Kana, then turn to Hira from end one by one
+    func modifyHiraKata() {
+        guard let bun = bunsetu else {
+            return
+        }
+
+        if let chars = bun.hiraKataChars {
+            if chars > 0 {
+                bun.setKataChars(chars - 1)
+            } else {
+                bun.setKataChars(bun.src.count)
+            }
+        } else {
+            bunsetu = Bunsetu(bun.src, kataChars: 0)
+        }
     }
 
     // Extend the current bunsetu lengnth one character
